@@ -1,5 +1,6 @@
 ## Non-Intrusive Load Surveying (NILS)
 ![](NILS.png)
+
 We introduce the problem of **Non-Intrusive Load Surveying (NILS)**, which involves identifying and estimating the count of electrical appliances in buildings using only aggregate electricity consumption data from a single smart meter, without the need for intrusive monitoring or device-level instrumentation. Unlike Non-Intrusive Load Monitoring (NILM), which aims to disaggregate energy usage into appliance-level operational profiles, NILS focuses solely on detecting the presence of appliances, irrespective of their usage frequency or duration. This shift in focus makes NILS particularly relevant for applications such as energy auditing, targeted demand response, appliance stock estimation, and personalized energy feedback, where knowledge of appliance inventory is more critical than fine-grained usage patterns.
 
 In this paper, we formally define the Non-Intrusive Load Surveying (NILS) problem and highlight its practical significance. We also present two key variants of the task: (a) **NILS-Detection**, which involves determining whether specific appliance types (e.g., washing machine, air conditioner) are present in a household; and (b) **NILS-Counting**, which aims to estimate the number of appliances of each type. To evaluate the feasibility of NILS, we conduct a comprehensive benchmarking study using four diverse datasets spanning over 5,600 buildings and more than 25 appliance types from both commercial and residential settings. We implement and compare several state-of-the-art time series classification and regression models for the NILS-Detection and NILS-Counting tasks. Our analysis also examines the impact of sampling intervals (15, 30, and 60 minutes) on model performance. The results demonstrate that NILS is both feasible and scalable, offering a promising direction for surveying household appliance usage using existing smart metering infrastructure. We also discuss key challenges, current limitations, and future research directions to advance the development and deployment of NILS.
@@ -19,7 +20,7 @@ This repository contains the reprodicble dataset, code and results.
 
 
 ## Installation
-### 1: First Create Separate Virtual Environment:
+### 1: First Create a Separate Virtual Environment:
 ```bash
 python3 -m venv NILS
 Source NILS/bin/activate  # On Windows: NILS\Scripts\activate
@@ -127,7 +128,6 @@ NILS/                                   # Root directory of the project
 | **Air coolers** | 0.4167 | 0.4094 | 0.4857 | 0.5206 | 0.4857 | 0.5536 | **0.7172** | 0.6681 | _0.6939_ | 0.5944 | 0.4167 | 0.6298 | 0.5159 |
 | **Fridge** | 0.4615 | **0.5855** | _0.4615_ | 0.4474 | _0.4615_ | _0.4615_ | _0.4615_ | _0.4615_ | _0.4615_ | _0.4615_ | 0.3753 | _0.4615_ | 0.4247 |
 | **Inverter** | 0.4000 | 0.4296 | 0.4000 | 0.4997 | 0.4596 | 0.5206 | **0.7375** | _0.6062_ | 0.5873 | 0.5944 | 0.4000 | 0.5258 | 0.4269 |
-| **TV** | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | _0.4684_ | **0.4995** | _0.4684_ | 0.3713 |
 | **Washing machine** | 0.3913 | 0.4759 | 0.4469 | 0.5510 | 0.7437 | 0.7437 | 0.7544 | 0.6707 | 0.6998 | 0.5510 | **0.8090** | _0.7772_ | 0.4367 |
 | **Water heaters** | 0.4167 | 0.4899 | 0.6912 | 0.6719 | 0.7143 | 0.7375 | **0.7778** | _0.7667_ | 0.7215 | 0.6707 | 0.7172 | 0.7172 | 0.4987 |
 | **Mean** | 0.4289 | 0.4864 | 0.4859 | 0.5152 | 0.5401 | 0.5618 | **0.6657** | 0.6176 | _0.6177_ | 0.5795 | 0.5236 | 0.5473 | 0.4508 |
@@ -135,7 +135,5 @@ NILS/                                   # Root directory of the project
 
 ## Summary
 Across all datasets—Comstock, Restock, Prayas, and CER—advanced time-series classification models like Minirocket, DrCIF, and Arsenal consistently outperform baseline and traditional algorithms. The performance gains are most notable for appliances with distinctive and repetitive usage patterns, while even irregular or less frequent loads benefit from the richer feature extraction capabilities of these models. These results validate the effectiveness of modern machine learning techniques in diverse energy consumption contexts, ranging from commercial and retail to varied residential environments across multiple countries. The findings also underscore the value of high-resolution datasets, which enable models to learn both fine-grained short-term behaviors and broader long-term patterns.
-
-
 
 
